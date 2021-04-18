@@ -33,9 +33,8 @@ public class SfxManager : Singleton<SfxManager>
     [SerializeField] GameObject m_AudioSourceModel;
 
     [SerializeField] bool m_ShowGui;
-
-    List<AudioSource> m_AudioSources = new List<AudioSource>();
-    Dictionary<string, MyAudioClip> m_DicoAudioClips = new Dictionary<string, MyAudioClip>();
+    readonly List<AudioSource> m_AudioSources = new List<AudioSource>();
+    readonly Dictionary<string, MyAudioClip> m_DicoAudioClips = new Dictionary<string, MyAudioClip>();
 
     AudioSource AddAudioSource()
     {
@@ -91,8 +90,7 @@ public class SfxManager : Singleton<SfxManager>
         if (FlagsManager.Instance && !FlagsManager.Instance.GetFlag("SETTINGS_SFX", true))
             return;
 
-        MyAudioClip audioClip;
-        if (!m_DicoAudioClips.TryGetValue(sfxName, out audioClip))
+        if (!m_DicoAudioClips.TryGetValue(sfxName, out MyAudioClip audioClip))
         {
             Debug.LogError("SFX, no audio clip with name: " + sfxName);
             return;

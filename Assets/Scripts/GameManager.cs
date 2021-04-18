@@ -32,7 +32,7 @@
         void SetNLives(int nLives)
         {
             m_NLives = nLives;
-            EventManager.Instance.Raise(new GameStatisticsChangedEvent() { eBestScore = BestScore, eScore = m_Score, eNLives = m_NLives });
+            EventManager.Instance.Raise(new GameStatisticsChangedEvent() { BestScore = BestScore, Score = m_Score, NumberLives = m_NLives });
         }
         #endregion
 
@@ -65,7 +65,7 @@
             Score = score;
 
             if (raiseEvent)
-                EventManager.Instance.Raise(new GameStatisticsChangedEvent() { eBestScore = BestScore, eScore = m_Score, eNLives = m_NLives });
+                EventManager.Instance.Raise(new GameStatisticsChangedEvent() { BestScore = BestScore, Score = m_Score, NumberLives = m_NLives });
         }
         #endregion
 
@@ -75,7 +75,6 @@
             Time.timeScale = newTimeScale;
         }
         #endregion
-
 
         #region Events' subscription
         public override void SubscribeEvents()

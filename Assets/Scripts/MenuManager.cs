@@ -59,10 +59,12 @@ namespace FastRacing
         #region Panel Methods
         void RegisterPanels()
         {
-            m_AllPanels = new List<GameObject>();
-            m_AllPanels.Add(m_PanelMainMenu);
-            m_AllPanels.Add(m_PanelInGameMenu);
-            m_AllPanels.Add(m_PanelGameOver);
+            m_AllPanels = new List<GameObject>
+            {
+                m_PanelMainMenu,
+                m_PanelInGameMenu,
+                m_PanelGameOver
+            };
         }
 
         void OpenPanel(GameObject panel)

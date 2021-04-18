@@ -20,7 +20,7 @@ public class MusicLoopsManager : Singleton<MusicLoopsManager>
     [SerializeField] bool m_ShowGui;
 
     int m_IndexFadeIn = 0;
-    float[] m_MaxVolumes = new float[2];
+    readonly float[] m_MaxVolumes = new float[2];
 
 
     protected override void Awake()
