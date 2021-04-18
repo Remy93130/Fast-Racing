@@ -1,4 +1,4 @@
-﻿namespace STUDENT_NAME
+﻿namespace FastRacing
 {
     using UnityEngine;
 

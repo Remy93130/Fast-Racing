@@ -1,5 +1,5 @@
 ﻿
-namespace STUDENT_NAME
+namespace FastRacing
 {
     using System;
     using System.Collections;
