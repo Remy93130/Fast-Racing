@@ -10,6 +10,9 @@ namespace FastRacing
 
     public class LevelManager : Manager<LevelManager>
     {
+        [SerializeField] protected GameObject m_CarPrefab;
+        [SerializeField] protected GameObject m_GroundPrefab;
+
         #region Manager implementation
         protected override IEnumerator InitCoroutine()
         {
@@ -29,10 +32,15 @@ namespace FastRacing
 
         protected override void GamePlay(GamePlayEvent e)
         {
+            var trackPrefab = Resources.Load("Prefabs/Tracks/"+ e.track);
+            Instantiate(trackPrefab, new Vector3(0,0,0) ,Quaternion.identity);
+            //Mettre en place la voiture
+     
         }
 
         protected override void GameMenu(GameMenuEvent e)
         {
+            //penser à Destroy le circuit quand on retourne dans le menu
         }
     }
 }

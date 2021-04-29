@@ -6,6 +6,7 @@ namespace FastRacing
     using System.Collections.Generic;
     using UnityEngine;
     using SDD.Events;
+    using UnityEngine.UI;
 
     public class MenuManager : Manager<MenuManager>
     {
@@ -17,6 +18,7 @@ namespace FastRacing
         [SerializeField] GameObject m_PanelMainMenu;
         [SerializeField] GameObject m_PanelInGameMenu;
         [SerializeField] GameObject m_PanelGameOver;
+        [SerializeField] GameObject m_PanelTrackChoice;
 
         List<GameObject> m_AllPanels;
         #endregion
@@ -63,7 +65,8 @@ namespace FastRacing
             {
                 m_PanelMainMenu,
                 m_PanelInGameMenu,
-                m_PanelGameOver
+                m_PanelGameOver,
+                m_PanelTrackChoice
             };
         }
 
@@ -82,7 +85,19 @@ namespace FastRacing
 
         public void PlayButtonHasBeenClicked()
         {
-            EventManager.Instance.Raise(new PlayButtonClickedEvent());
+            Dropdown dropdown = m_PanelTrackChoice.GetComponentInChildren<Dropdown>();
+            string trackChoice = dropdown.options[dropdown.value].text;
+            EventManager.Instance.Raise(new PlayButtonClickedEvent() {track = trackChoice});
+        }
+
+        public void PlayMainMenuButtonHasBeenClicked()
+        {
+            EventManager.Instance.Raise(new PlayMainMenuButtonClickedEvent());
+        }
+
+        public void ReturnButtonHasBeenClicked()
+        {
+            EventManager.Instance.Raise(new ReturnButtonClickedEvent());
         }
 
         public void ResumeButtonHasBeenClicked()
@@ -108,9 +123,19 @@ namespace FastRacing
             OpenPanel(m_PanelMainMenu);
         }
 
+        protected override void GamePlayMainMenu(GamePlayMainMenuEvent e)
+        {
+            OpenPanel(m_PanelTrackChoice);
+        }
+
         protected override void GamePlay(GamePlayEvent e)
         {
             OpenPanel(null);
+        }
+
+        protected override void GameReturn(GameReturnEvent e)
+        {
+            OpenPanel(m_PanelMainMenu);
         }
 
         protected override void GamePause(GamePauseEvent e)

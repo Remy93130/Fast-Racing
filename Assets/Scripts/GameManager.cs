@@ -87,6 +87,8 @@
             EventManager.Instance.AddListener<ResumeButtonClickedEvent>(ResumeButtonClicked);
             EventManager.Instance.AddListener<EscapeButtonClickedEvent>(EscapeButtonClicked);
             EventManager.Instance.AddListener<QuitButtonClickedEvent>(QuitButtonClicked);
+            EventManager.Instance.AddListener<ReturnButtonClickedEvent>(ReturnButtonClicked);
+            EventManager.Instance.AddListener<PlayMainMenuButtonClickedEvent>(PlayMainMenuButtonClicked);
 
             //Score Item
             EventManager.Instance.AddListener<ScoreItemEvent>(ScoreHasBeenGained);
@@ -102,6 +104,8 @@
             EventManager.Instance.RemoveListener<ResumeButtonClickedEvent>(ResumeButtonClicked);
             EventManager.Instance.RemoveListener<EscapeButtonClickedEvent>(EscapeButtonClicked);
             EventManager.Instance.RemoveListener<QuitButtonClickedEvent>(QuitButtonClicked);
+            EventManager.Instance.RemoveListener<ReturnButtonClickedEvent>(ReturnButtonClicked);
+            EventManager.Instance.RemoveListener<PlayMainMenuButtonClickedEvent>(PlayMainMenuButtonClicked);
 
             //Score Item
             EventManager.Instance.RemoveListener<ScoreItemEvent>(ScoreHasBeenGained);
@@ -141,7 +145,17 @@
 
         private void PlayButtonClicked(PlayButtonClickedEvent e)
         {
-            Play();
+            Play(e.track);
+        }
+
+        private void PlayMainMenuButtonClicked(PlayMainMenuButtonClickedEvent e)
+        {
+            PlayMainMenu();
+        }
+
+        private void ReturnButtonClicked(ReturnButtonClickedEvent e)
+        {
+            Return();
         }
 
         private void ResumeButtonClicked(ResumeButtonClickedEvent e)
@@ -169,15 +183,28 @@
             EventManager.Instance.Raise(new GameMenuEvent());
         }
 
-        private void Play()
+        private void PlayMainMenu()
+        {
+            SetTimeScale(1);
+            EventManager.Instance.Raise(new GamePlayMainMenuEvent());
+        }
+
+        private void Return()
+        {
+            SetTimeScale(1);
+            EventManager.Instance.Raise(new GameReturnEvent());
+        }
+
+        private void Play(string trackChoice)
         {
             InitNewGame();
             SetTimeScale(1);
             m_GameState = GameState.gamePlay;
 
             if (MusicLoopsManager.Instance) MusicLoopsManager.Instance.PlayMusic(Constants.GAMEPLAY_MUSIC);
-            EventManager.Instance.Raise(new GamePlayEvent());
+            EventManager.Instance.Raise(new GamePlayEvent() { track = trackChoice });
         }
+
 
         private void Pause()
         {
