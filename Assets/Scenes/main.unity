@@ -493,6 +493,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 8669787016590050082, guid: e49e22de46c96f74283870bdc0631214,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8669787016590050087, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_RootOrder
@@ -1494,6 +1499,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3244229706705294659, guid: d6a2abb0857cf6245b71d24547f32ffa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3244229706705294671, guid: d6a2abb0857cf6245b71d24547f32ffa,
         type: 3}

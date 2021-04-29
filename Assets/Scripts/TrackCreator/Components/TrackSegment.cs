@@ -136,6 +136,10 @@ public class TrackSegment : MonoBehaviour
         Mesh.SetNormals(normals);
         Mesh.SetUVs(0, uv0);
         Mesh.SetUVs(1, uv1);
+        
+        Mesh.RecalculateBounds();
+        MeshCollider collider = GetComponent<MeshCollider>();
+        collider.sharedMesh = Mesh;
     }
 
     /// <summary>
