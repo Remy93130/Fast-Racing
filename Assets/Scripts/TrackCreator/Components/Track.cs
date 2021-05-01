@@ -78,5 +78,12 @@ public class Track : MonoBehaviour
         }
     }
 
+    public Vector3 getFirstSegment()
+    {
+        TrackSegment[] allSegments = GetComponentsInChildren<TrackSegment>();
+        return allSegments[0].transform.position;
+
+    }
+
     #endregion
 }
