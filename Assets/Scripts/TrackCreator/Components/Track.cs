@@ -85,5 +85,12 @@ public class Track : MonoBehaviour
 
     }
 
+    public Vector3 getRotateSegment()
+    {
+        TrackSegment[] allSegments = GetComponentsInChildren<TrackSegment>();
+        return allSegments[0].transform.eulerAngles;
+
+    }
+
     #endregion
 }

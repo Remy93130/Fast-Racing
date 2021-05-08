@@ -25,7 +25,7 @@
 
         void FixedUpdate()
         {
-            if (!GameManager.Instance.IsPlaying) return;
+           // if (!GameManager.Instance.IsPlaying) return;
 
             HandleTranslation();
             HandleRotation();

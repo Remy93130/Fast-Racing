@@ -1730,7 +1730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1322255614258102, guid: 2d4cc07e22d85374b8d15cd15f4e18e1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1481746587088898, guid: 2d4cc07e22d85374b8d15cd15f4e18e1, type: 3}
       propertyPath: m_IsActive
@@ -2246,6 +2246,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3166883484906327574, guid: e49e22de46c96f74283870bdc0631214,
+        type: 3}
+      propertyPath: breakForce
+      value: 3000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166883484906327574, guid: e49e22de46c96f74283870bdc0631214,
+        type: 3}
+      propertyPath: motorForce
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 3166883484906327574, guid: e49e22de46c96f74283870bdc0631214,
+        type: 3}
+      propertyPath: maxSteerAngle
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 3166883485292789490, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_UseGravity

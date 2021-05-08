@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
     private float horizontalInput;
@@ -11,7 +12,10 @@ public class CarController : MonoBehaviour
     private const string HORIZONTAL = "Horizontal";
     private const string VERTICAL = "Vertical";
 
-    private bool isBreaking;
+    private bool isBreakingUp;
+    private bool isBreakingDown;
+
+    private Rigidbody carRigidbody;
 
     private float currentBreakForce;
 
@@ -31,29 +35,37 @@ public class CarController : MonoBehaviour
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteerAngle;
 
+    public void Awake()
+    {
+        carRigidbody = GetComponent<Rigidbody>();
+    }
+
     private void FixedUpdate()
     {
         GetInput();
         HandleMotor();
         HandleSteerling();
         UpdateWheels();
-
     }
+
     private void GetInput()
     {
         verticalInput = Input.GetAxis(VERTICAL);
         horizontalInput = Input.GetAxis(HORIZONTAL);
-        isBreaking = Input.GetKey(KeyCode.Space);
+        isBreakingUp = Input.GetKey(KeyCode.UpArrow);
+        isBreakingDown = Input.GetKey(KeyCode.DownArrow);
     }
     private void HandleMotor()
     {
         frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
         frontRightWheelCollider.motorTorque = verticalInput * motorForce;
-        currentBreakForce = isBreaking ? breakForce : 0f;
-        if (isBreaking)
+        currentBreakForce = 0f;
+        if (!isBreakingDown && !isBreakingUp)
         {
-            ApplyBreaking();
+            currentBreakForce = breakForce;
         }
+        //currentBreakForce = isBreaking ? breakForce : 0f;
+        ApplyBreaking();
     }
     private void ApplyBreaking()
     {
@@ -62,12 +74,14 @@ public class CarController : MonoBehaviour
         rearLeftWheelCollider.brakeTorque = currentBreakForce;
         rearRightWheelCollider.brakeTorque = currentBreakForce;
     }
+
     private void HandleSteerling()
     {
         currentSteerAngle = maxSteerAngle * horizontalInput;
         frontLeftWheelCollider.steerAngle = currentSteerAngle;
         frontRightWheelCollider.steerAngle = currentSteerAngle;
     }
+
     private void UpdateWheels()
     {
         UpdateSingleWheel(frontLeftWheelCollider, frontLeftWheelTransform);
