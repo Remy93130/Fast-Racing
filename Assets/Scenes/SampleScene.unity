@@ -350,7 +350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &722792006 stripped
 Transform:
@@ -578,7 +578,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &963194229
 MonoBehaviour:
@@ -689,6 +689,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42c0f36412d66f640989032e8eb2452d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
+  rotationSpedd: 100
   frontLeftWheelCollider: {fileID: 464797731}
   frontRightWheelCollider: {fileID: 63588165}
   rearLeftWheelCollider: {fileID: 428046580}
@@ -1141,7 +1143,7 @@ PrefabInstance:
     - target: {fileID: 3244229706705294671, guid: d6a2abb0857cf6245b71d24547f32ffa,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3244229706705294671, guid: d6a2abb0857cf6245b71d24547f32ffa,
         type: 3}
