@@ -9,9 +9,6 @@ public class CarController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
-    public float speed = 10.0f;
-    public float rotationSpedd = 100.0f;
-
     private const string HORIZONTAL = "Horizontal";
     private const string VERTICAL = "Vertical";
 
@@ -34,7 +31,7 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform rearLeftWheelTransform;
     [SerializeField] private Transform rearRightWheelTransform;
 
-    [SerializeField] private float motorForce;
+    [SerializeField] private float maxAcceleration;
     [SerializeField] private float breakForce;
     [SerializeField] private float maxSteerAngle;
 
@@ -45,19 +42,10 @@ public class CarController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float translation = Input.GetAxis("Vertical") * speed;
-        float rotation = Input.GetAxis("Horizontal") * rotationSpedd;
-        translation *= Time.deltaTime;
-        rotation *= Time.deltaTime;
-        transform.Translate(0, 0, translation);
-        transform.Rotate(0, rotation, 0);
-        frontLeftWheelCollider.steerAngle = rotation * maxSteerAngle;
-        frontRightWheelCollider.steerAngle = rotation * maxSteerAngle;
-        UpdateWheels();
-       /* GetInput();
+        GetInput();
         HandleMotor();
         HandleSteerling();
-        UpdateWheels();*/
+        UpdateWheels();
     }
 
     private void GetInput()
@@ -69,8 +57,8 @@ public class CarController : MonoBehaviour
     }
     private void HandleMotor()
     {
-        frontLeftWheelCollider.motorTorque = verticalInput * motorForce;
-        frontRightWheelCollider.motorTorque = verticalInput * motorForce;
+        frontLeftWheelCollider.motorTorque = verticalInput * maxAcceleration * 500 * Time.deltaTime;
+        frontRightWheelCollider.motorTorque = verticalInput * maxAcceleration * 500 * Time.deltaTime;
         currentBreakForce = 0f;
         if (!isBreakingDown && !isBreakingUp)
         {
