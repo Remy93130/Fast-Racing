@@ -1259,6 +1259,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1872545305}
   m_PrefabAsset: {fileID: 0}
+--- !u!146 &1130239675 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 3166883485556772921, guid: e49e22de46c96f74283870bdc0631214,
+    type: 3}
+  m_PrefabInstance: {fileID: 2078600198}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1331993496
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1499,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1628508830}
   m_CullTransparentMesh: 0
+--- !u!146 &1761923879 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 3166883485685549310, guid: e49e22de46c96f74283870bdc0631214,
+    type: 3}
+  m_PrefabInstance: {fileID: 2078600198}
+  m_PrefabAsset: {fileID: 0}
+--- !u!146 &1765280740 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 3166883484577229485, guid: e49e22de46c96f74283870bdc0631214,
+    type: 3}
+  m_PrefabInstance: {fileID: 2078600198}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1786678065
 GameObject:
   m_ObjectHideFlags: 0
@@ -1559,6 +1577,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!146 &1803165730 stripped
+WheelCollider:
+  m_CorrespondingSourceObject: {fileID: 3166883484624719758, guid: e49e22de46c96f74283870bdc0631214,
+    type: 3}
+  m_PrefabInstance: {fileID: 2078600198}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1846057050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,22 +2283,22 @@ PrefabInstance:
     - target: {fileID: 3166883484577229485, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 10000
+      value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 3166883484577229485, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_SuspensionSpring.spring
-      value: 100000
+      value: 45000
       objectReference: {fileID: 0}
     - target: {fileID: 3166883484624719758, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 10000
+      value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 3166883484624719758, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_SuspensionSpring.spring
-      value: 100000
+      value: 45000
       objectReference: {fileID: 0}
     - target: {fileID: 3166883484906327574, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
@@ -2316,25 +2340,30 @@ PrefabInstance:
       propertyPath: m_UseGravity
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3166883485292789490, guid: e49e22de46c96f74283870bdc0631214,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3166883485556772921, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 10000
+      value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 3166883485556772921, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_SuspensionSpring.spring
-      value: 100000
+      value: 45000
       objectReference: {fileID: 0}
     - target: {fileID: 3166883485685549310, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 10000
+      value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 3166883485685549310, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
       propertyPath: m_SuspensionSpring.spring
-      value: 100000
+      value: 45000
       objectReference: {fileID: 0}
     - target: {fileID: 8669787016590050082, guid: e49e22de46c96f74283870bdc0631214,
         type: 3}
@@ -2419,6 +2448,34 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2078600198}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2078600200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078600199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2343320b76385414e98a6d5a47c0773e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WheelL: {fileID: 1765280740}
+  WheelR: {fileID: 1803165730}
+--- !u!114 &2078600201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2078600199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2343320b76385414e98a6d5a47c0773e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WheelL: {fileID: 1761923879}
+  WheelR: {fileID: 1130239675}
 --- !u!4 &2078600202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8669787016590050087, guid: e49e22de46c96f74283870bdc0631214,

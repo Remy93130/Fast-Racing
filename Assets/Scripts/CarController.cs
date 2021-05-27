@@ -15,8 +15,6 @@ public class CarController : MonoBehaviour
     private bool isBreakingUp;
     private bool isBreakingDown;
 
-    private Rigidbody carRigidbody;
-
     private float currentBreakForce;
 
     private float currentSteerAngle;
@@ -37,7 +35,6 @@ public class CarController : MonoBehaviour
 
     public void Awake()
     {
-        carRigidbody = GetComponent<Rigidbody>();
     }
 
     private void FixedUpdate()
