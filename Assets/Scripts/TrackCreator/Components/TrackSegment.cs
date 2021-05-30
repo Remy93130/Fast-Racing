@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [ExecuteInEditMode]
-[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
+[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider))]
 public class TrackSegment : MonoBehaviour
 {
     #region attributs
